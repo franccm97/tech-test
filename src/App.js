@@ -7,57 +7,45 @@ function App() {
 
 
   const [chapters, setChapters] = useState([])
-  const [selectedChapter, setSelectedChapter] = useState(null)
-  const [selectedSubChapters, setSelectedSubChapters] = useState(null)
+  const [chapter, setChapter] = useState({})
+
 
 
 
   useEffect(() => {
-    Chapters.map((chapters) => {
-      setChapters(chapters)
+    Chapters.map((chaptersData) => {
+      setChapters(chaptersData)
     })
     // chapters?.subchapters.map((subchapter) => {
     //   setSelectedSubChapters(subchapter)
     // })
+    console.log(chapters);
+    console.log(chapter);
+    // console.log(subChapters);
 
-  }, [selectedChapter, selectedSubChapters])
+  }, [chapter,chapters])
 
 
-  function handleChapter(e) {
-    setSelectedChapter(e)
-  }
 
   return (
     <>
+     
       {
-        chapters && chapters.map((chapter, index) => {
-          console.log(chapter.subchapters,"im this one");
-          return <>
-            <div onClick={() => handleChapter(chapter.chapterInfo.name)}>
-              {
-                <>
-                  {chapter.chapterInfo.name === selectedChapter ?
-                    <div>
-                      <h3>
-                        {chapter.chapterInfo.name}
-                      </h3>
-                      {/* {
-                        chapter.subchapters.map((subchapter) => {
-                          return (
+        chapters&&chapters.map((chapter)=>{
+return(
+  <>
+  <br></br>
+  <div onClick={()=>console.log("hola")}>
+{
+  <>
 
-                            console.log(subchapter)
-                          )
-                        })
-                      } */}
-                    </div>
-                    : <h3>
-                      {chapter.chapterInfo.name}
-                    </h3>}
-                </>
-              }
-
-            </div>
-          </>
+{chapter.chapterId}
+  </>
+}
+  </div>
+  <br></br>
+  </>
+)
         })
       }
     </>
