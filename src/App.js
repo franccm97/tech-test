@@ -8,24 +8,23 @@ import {ChapterProvider} from "./Context/chaptersContext"
 
 function App() {
 
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
 
-  useEffect(() => {
-    setData(Chapters[0])
+  // useEffect(() => {
+  //   setData(Chapters[0])
 
-  }, [])
+  // }, [])
 
   return (
     <>
+    <ChapterProvider>
       <BrowserRouter>
-      <ChapterProvider>
-
         <Routes>
           <Route path="/selectedChapters" element={<SelectedChapters />} />
-          <Route path="/" element={<AllChapters data={data} />} />
+          <Route path="/" element={<AllChapters  />} />
         </Routes>
-      </ChapterProvider>
       </BrowserRouter>
+      </ChapterProvider>
     </>
   )
 

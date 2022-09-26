@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ChapterContext } from '../Context/chaptersContext';
 import Chapter from './chapterContainer';
 
 
 
-const DisplayList = ({ data }) => {
+const DisplayList = ({ data, isChapterSelected }) => {
 
+  const { changeCheckBackTrack } = useContext(ChapterContext)
   const [dropDown, setDropDown] = useState([])
-  const [checked, setChecked] = useState([])
+
 
   useEffect(() => {
     const auxArray = [];
@@ -14,8 +16,6 @@ const DisplayList = ({ data }) => {
       auxArray.push(false)
     });
     setDropDown(auxArray);
-    setChecked(auxArray);
-
   }, [])
 
   const changeDropDownElement = index => {
@@ -25,17 +25,13 @@ const DisplayList = ({ data }) => {
 
   }
 
-  const handleCheckChapter = (index) => {
-    const auxArray = [...checked];
-    auxArray[index] = !auxArray[index];
-    setChecked(auxArray);
-  }
+
 
   return (
     <>
       {
         data.map((chapter, index) => {
-
+          if ((isChapterSelected && chapter.checked) || !isChapterSelected) {
           return (
             <>
 
@@ -44,17 +40,20 @@ const DisplayList = ({ data }) => {
                 name={chapter.chapterInfo.name}
                 changeDropDownElement={changeDropDownElement}
                 index={index}
-                handleCheckChapter={handleCheckChapter}
-                
+                id={chapter.chapterId}
+                handleCheckChapter={changeCheckBackTrack}
+                isChapterSelected={isChapterSelected}
+                value = {chapter.checked}
               />
               {
                 dropDown[index] && chapter.subchapters &&
-                <DisplayList data={chapter.subchapters} />
+                <DisplayList data={chapter.subchapters} isChapterSelected={isChapterSelected} />
               }
 
 
             </>
-          )
+          ) 
+            }
         })
 
       }
