@@ -13,18 +13,12 @@ function App() {
     setData(Chapters[0])
 
   }, [])
-  console.log(data);
-
 
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/selectedChapters" element={<SelectedChapters />} />
-
-          {/* <Route path="/" >
-   
-        </Route> */}
           <Route path="/" element={<AllChapters data={data} />} />
         </Routes>
       </BrowserRouter>

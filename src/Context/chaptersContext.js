@@ -4,13 +4,28 @@ import Chapters from "../Chapters.json"
 export const ChapterContext = createContext()
 
 export const ChapterContextProvider = ({ children }) => {
-    const data = Chapter[0]
+
     const [selectedChapters, setSelectedChapters] = useState([])
-    const addChapter = (chapter, isChild) => {
-        if (!isChild) {
-            let newArr = [...selectedChapters]
-            selectedChapters.push(chapter)
-            
-        }
+    const [data, setData] = useState([]);
+
+    const backtrackDatraTree = (chapters)  => {
+        chapters.forEach(chapter => {
+            if()
+        });
     }
+
+    useEffect(() => {
+        const auxArray = [];
+        Chapters[0].map( (chapter)=>{
+            auxArray
+        })
+    }, [])
+    
+    
+    const addChapter = (chapter) => {
+        const auxArray = [...selectedChapters];
+        auxArray.push(chapter.chapterInfo.chapterId);
+        setSelectedChapters(auxArray);
+    }
+    
 }

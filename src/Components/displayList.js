@@ -3,10 +3,10 @@ import Chapter from './chapterContainer';
 
 
 
-const DisplayList = ({ data}) => {
+const DisplayList = ({ data }) => {
 
   const [dropDown, setDropDown] = useState([])
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState([])
 
   useEffect(() => {
     const auxArray = [];
@@ -14,6 +14,7 @@ const DisplayList = ({ data}) => {
       auxArray.push(false)
     });
     setDropDown(auxArray);
+    setChecked(auxArray);
 
   }, [])
 
@@ -24,18 +25,17 @@ const DisplayList = ({ data}) => {
 
   }
 
-  // const handleCheckChapter = () => {
-  //   setChecked(!checked);
-  // }
-
-
-
+  const handleCheckChapter = (index) => {
+    const auxArray = [...checked];
+    auxArray[index] = !auxArray[index];
+    setChecked(auxArray);
+  }
 
   return (
     <>
       {
         data.map((chapter, index) => {
-          console.log(chapter.subchapters);
+
           return (
             <>
 
@@ -43,13 +43,13 @@ const DisplayList = ({ data}) => {
                 isOpen={dropDown[index]}
                 name={chapter.chapterInfo.name}
                 changeDropDownElement={changeDropDownElement}
-                index={index} 
-                />
-                
-
+                index={index}
+                handleCheckChapter={handleCheckChapter}
+                chapter = {chapter}
+              />
               {
-                dropDown[index] &&
-                <DisplayList data={chapter.subchapters}  />
+                dropDown[index] && chapter.subchapters &&
+                <DisplayList data={chapter.subchapters} />
               }
 
 
