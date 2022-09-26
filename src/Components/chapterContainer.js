@@ -4,7 +4,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { ChapterContainer } from "./containers"
 
-const Chapter = ({ isOpen, name, changeDropDownElement, index, handleCheckChapter,chapter }) => {
+const Chapter = ({ isOpen, name, changeDropDownElement, index, handleCheckChapter}) => {
     return (
         
         <ChapterContainer>

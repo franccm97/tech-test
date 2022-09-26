@@ -4,6 +4,7 @@ import Chapters from "./Chapters.json"
 import DisplayList from "./Components/displayList";
 import SelectedChapters from "./Pages/selectedChapters";
 import AllChapters from "./Pages/allChapters";
+import {ChapterProvider} from "./Context/chaptersContext"
 
 function App() {
 
@@ -17,10 +18,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <ChapterProvider>
+
         <Routes>
           <Route path="/selectedChapters" element={<SelectedChapters />} />
           <Route path="/" element={<AllChapters data={data} />} />
         </Routes>
+      </ChapterProvider>
       </BrowserRouter>
     </>
   )

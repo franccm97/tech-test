@@ -45,7 +45,7 @@ const DisplayList = ({ data }) => {
                 changeDropDownElement={changeDropDownElement}
                 index={index}
                 handleCheckChapter={handleCheckChapter}
-                chapter = {chapter}
+                
               />
               {
                 dropDown[index] && chapter.subchapters &&
