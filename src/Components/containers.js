@@ -5,7 +5,8 @@ export const ChapterContainer = styled.div`
   width: 98%;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
-  height: 44px;
+  max-height: 44px;
+  height: 100%;
   padding-top: 0px;
   margin-bottom: 12px;
   margin-top: 0px;
@@ -15,11 +16,12 @@ export const ChapterContainer = styled.div`
 
 
 export const SubChapterContainer = styled.div`
-   {
+   
+    display: flex;
     width: 98.8% !important;
     box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
-    height: 44px;
+    min-height: fit-content;
     padding-top: 0px;
     margin-bottom: 9px;
     margin-top: 8px;
@@ -27,12 +29,14 @@ export const SubChapterContainer = styled.div`
     border-radius: 6px;
     min-width: 920px;
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.08);
-  }
+  
 `
 
 
 export const ShowChildDiv = styled.div`
-   {
+   
+    /* display : flex;
+    flex-direction:column; */
     margin-left: 0px;
     width: 98.8%;
     background-color:rgba(252, 168, 100, 0.21);
@@ -43,11 +47,11 @@ export const ShowChildDiv = styled.div`
     padding-bottom: 8px;
     margin-top:-8px;
     padding-left: 8px;
-  }
+  
 `
 
 export const ShowParentDiv = styled.div`
-   {
+   
     width: 100%;
     background-color: white;
     box-shadow: rgb(0 0 0 / 8%) 0px 6px 6px;
@@ -59,11 +63,11 @@ export const ShowParentDiv = styled.div`
     margin-bottom: 8px;
     margin-top: -19.5px;
     min-width: 1020px;
-  }
+  
 `
 
 
-  export const EmptyButton = styled.div`
+export const EmptyButton = styled.div`
   background-color: white;
   border-radius: 4px;
   cursor: pointer;
