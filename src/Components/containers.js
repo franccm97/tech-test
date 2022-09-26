@@ -2,6 +2,8 @@ import styled from "styled-components"
 
 
 export const ChapterContainer = styled.div`
+display: flex;
+align-items: center;
   width: 98%;
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
