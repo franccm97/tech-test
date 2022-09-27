@@ -6,7 +6,6 @@ import { ChapterContainer } from "./containers"
 const Chapter = ({ isOpen, name, changeDropDownElement, index, handleCheckChapter, id, isChapterSelected, value }) => {
     
     return (
-
         <ChapterContainer>
             {
 

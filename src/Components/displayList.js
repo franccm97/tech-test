@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { ChapterContext } from '../Context/chaptersContext';
 import Chapter from './chapterContainer';
 
-
-
 const DisplayList = ({ data, isChapterSelected }) => {
-
   const { changeCheckBackTrack } = useContext(ChapterContext)
   const [dropDown, setDropDown] = useState([])
-
 
   useEffect(() => {
     const auxArray = [];
@@ -25,8 +21,6 @@ const DisplayList = ({ data, isChapterSelected }) => {
 
   }
 
-
-
   return (
     <>
       {
@@ -34,7 +28,6 @@ const DisplayList = ({ data, isChapterSelected }) => {
           if ((isChapterSelected && chapter.checked) || !isChapterSelected) {
           return (
             <>
-
               <Chapter
                 isOpen={dropDown[index]}
                 name={chapter.chapterInfo.name}
@@ -49,15 +42,12 @@ const DisplayList = ({ data, isChapterSelected }) => {
                 dropDown[index] && chapter.subchapters &&
                 <DisplayList data={chapter.subchapters} isChapterSelected={isChapterSelected} />
               }
-
-
             </>
           ) 
             }
         })
 
       }
-
     </>
   )
 }
